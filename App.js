@@ -1,12 +1,20 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, Image, TouchableOpacity, StackNavigator } from 'react-native';
 import { AppLoading, Asset, Font, Icon } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 
+// Bothered by this warning  !!
+console.ignoredYellowBox = true;
+
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     isLoadingComplete: false,
   };
+
 
   render() {
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
@@ -20,8 +28,13 @@ export default class App extends React.Component {
     } else {
       return (
         <View style={styles.container}>
+          <View style={styles.header}>
+           <Image style={styles.vide} source={require('./assets/images/param.png')} />
+            <Image style={styles.logo} source={require('./assets/images/FoodLuck-logo.png')}  />
+            <Image style={styles.param} source={require('./assets/images/param.png')} />
+          </View>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-          <AppNavigator />
+          <AppNavigator style={styles.tabNav} />
         </View>
       );
     }
@@ -60,5 +73,36 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  header: {
+    textAlign: 'center',
+    color: '#fff',
+    fontSize: 22,
+    width: '100%', 
+    height: 70, 
+    backgroundColor: '#f7f8fa', 
+    alignItems: 'center', 
+    justifyContent: 'flex-end',
+    marginTop: 20,
+    flexDirection: 'row'
+  },
+  logo: {
+    flex: 1,
+    width: 60,
+    height: 60,
+    resizeMode: 'contain'
+  },
+  param: {
+    flex: 1,
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+  },
+  vide: {
+    flex: 1,
+    width: 30,
+    height: 30,
+    resizeMode: 'contain',
+    opacity: 0
   },
 });

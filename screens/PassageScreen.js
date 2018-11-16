@@ -1,8 +1,12 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { MapView } from 'expo';
 
 export default class LinksScreen extends React.Component {
+  static navigationOptions = {
+    header: null,
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -11,7 +15,6 @@ export default class LinksScreen extends React.Component {
         lastLong: null,
     }
   }
-
 
   componentDidMount() {
     this.watchID = navigator.geolocation.watchPosition((position) => {
@@ -51,7 +54,7 @@ export default class LinksScreen extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1}}>
+      <View style={{flex: 1, backgroundColor:'#FFF'}}>
         <MapView
           style={styles.map}
           region={this.state.mapRegion}
@@ -67,6 +70,8 @@ export default class LinksScreen extends React.Component {
             image="https://image.ibb.co/iJqLEf/foodtruck-camion.png">
           </MapView.Marker>
         </MapView>
+        <Text style={styles.heure}>Heure de passage: 13h45</Text>
+        <Text style={styles.rouge}>Une urgence ?</Text>
       </View>
     );
   }
@@ -74,8 +79,22 @@ export default class LinksScreen extends React.Component {
 
 const styles = StyleSheet.create({
   map: {
-    flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+    height: 400
   },
+  heure: {
+    margin: 30,
+    fontFamily: 'now',
+    fontSize: 24,
+    textAlign: 'center',
+    color: '#464646'
+  },
+  rouge: {
+    marginTop:15,
+    fontFamily: 'now',
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#d82e56'
+  }
 });
