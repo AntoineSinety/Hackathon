@@ -20,7 +20,7 @@ export default class MenuScreen extends React.Component {
         <ScrollView>
         <Text style={styles.title}>Votre contribution</Text>
           <Image style={styles.contribImg}  source={require("../assets/images/contribution.png")} />
-          <Text style={styles.homContrib}><Text style={styles.bold}>15g</Text> de noutriture on été sauvé <Text style={styles.bold}>53</Text> repas fabriqués</Text>
+          <Text style={styles.homContrib}><Text style={styles.bold}>15g</Text> de nourriture ont été sauvés. <Text style={styles.bold}>53</Text> repas fabriqués</Text>
         </ScrollView>
       </View>
     );
@@ -49,10 +49,12 @@ const styles = StyleSheet.create({
     color: '#464646'
   },
   title: {
-    margin: 30,
+    marginTop: 30,
+    marginBottom: 30,
     fontFamily: 'now',
-    fontSize: 28,
+    fontSize: 26,
     textAlign: 'center',
-    color: '#464646'
+    color: '#5959fc',
+    textTransform: 'uppercase'
   }
 });

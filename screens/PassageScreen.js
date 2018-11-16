@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, Image,TouchableHighlight } from 'react-native';
 import { MapView } from 'expo';
 
-export default class LinksScreen extends React.Component {
+export default class PassageScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -52,9 +52,10 @@ export default class LinksScreen extends React.Component {
     this.onRegionChange(region, region.latitude, region.longitude);
   }
 
+
   render() {
     return (
-      <View style={{flex: 1, backgroundColor:'#FFF'}}>
+      <View style={{flex: 1, backgroundColor:'#FFF', position: 'relative'}}>
         <MapView
           style={styles.map}
           region={this.state.mapRegion}
@@ -67,9 +68,10 @@ export default class LinksScreen extends React.Component {
             }}
             title="FoodLuck"
             description="Ouvert de 18h à 22h"
-            image="https://image.ibb.co/iJqLEf/foodtruck-camion.png">
+            image="https://image.ibb.co/gD2xvL/foodtruck-camion.png">
           </MapView.Marker>
         </MapView>
+          <Image source={require('../assets/images/target.png')} style={styles.target} />
         <Text style={styles.heure}>Heure de passage: 13h45</Text>
         <Text style={styles.rouge}>Une urgence ?</Text>
       </View>
@@ -92,9 +94,21 @@ const styles = StyleSheet.create({
   },
   rouge: {
     marginTop:15,
-    fontFamily: 'now',
+    fontFamily: 'nowbold',
     fontSize: 16,
     textAlign: 'center',
     color: '#d82e56'
+  },
+  target:{
+    flex: 1,
+    height: 50,
+    width: 50,
+    margin:'auto',
+    resizeMode: 'cover',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position:"absolute",
+    right: 20,
+    bottom: 180
   }
 });

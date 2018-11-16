@@ -29,9 +29,7 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           <View style={styles.header}>
-           <Image style={styles.vide} source={require('./assets/images/param.png')} />
             <Image style={styles.logo} source={require('./assets/images/FoodLuck-logo.png')}  />
-            <Image style={styles.param} source={require('./assets/images/param.png')} />
           </View>
           {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
           <AppNavigator style={styles.tabNav} />
@@ -54,6 +52,7 @@ export default class App extends React.Component {
         'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
         'now': require('./assets/fonts/Now-Regular.ttf'),
         'nowalt': require('./assets/fonts/NowAlt-Regular.ttf'),
+        'nowbold': require('./assets/fonts/Now-Bold.otf'),
       }),
     ]);
   };
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     width: '100%', 
     height: 70, 
-    backgroundColor: '#f7f8fa', 
+    backgroundColor: '#5959fc', 
     alignItems: 'center', 
     justifyContent: 'flex-end',
     marginTop: 20,

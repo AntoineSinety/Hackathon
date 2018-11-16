@@ -45,7 +45,7 @@ MenuStack.navigationOptions = {
 
 //Declarer denree
 const DenreeStack = createStackNavigator({
-  Menu: DenreeScreen,
+  Denree: DenreeScreen,
 });
 MenuStack.navigationOptions = {
   tabBarLabel: 'Menu',
@@ -53,7 +53,7 @@ MenuStack.navigationOptions = {
 
 //Passage denree
 const PassageStack = createStackNavigator({
-  Menu: PassageScreen,
+  Passage: PassageScreen,
 });
 MenuStack.navigationOptions = {
   tabBarLabel: 'Passage',
@@ -61,10 +61,10 @@ MenuStack.navigationOptions = {
 
 export default createBottomTabNavigator(
   {
-    HomeStack,
+    // HomeStack,
     MenuStack,
-    SettingsStack,
-    LinksStack,
+    // SettingsStack,
+    // LinksStack,
     DenreeStack,
     PassageStack
   },
